@@ -1,5 +1,6 @@
 # ✈️ AeroPulse: Commercial Airline & Flight Delay Analytics Platform
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://aeropulse-flight-delay-analytics-xdpdjhpyfifrfgmxruwkcw.streamlit.app/)
 [![Python](https://img.shields.io/badge/Python-3.11%2B-blue.svg)](https://www.python.org/)
 [![Database](https://img.shields.io/badge/Database-SQL%20Server%20%7C%20SQLite-00E5FF.svg)](https://www.microsoft.com/en-us/sql-server/)
 [![Machine Learning](https://img.shields.io/badge/ML-Scikit--Learn%20%7C%20HistGradientBoosting-F59E0B.svg)](https://scikit-learn.org/)
@@ -7,6 +8,9 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.30%2B-FF4B4B.svg)](https://streamlit.io/)
 [![CI Workflow](https://img.shields.io/badge/CI-GitHub%20Actions%20Passing-10B981.svg)](.github/workflows/ci.yml)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
+> 🌐 **Live Interactive Cockpit Dashboard:**  
+> 👉 **[https://aeropulse-flight-delay-analytics-xdpdjhpyfifrfgmxruwkcw.streamlit.app/](https://aeropulse-flight-delay-analytics-xdpdjhpyfifrfgmxruwkcw.streamlit.app/)**
 
 > **Portfolio Pitch:** *"I can design a normalized relational schema (Star Schema / 3NF), engineer an automated high-throughput ETL pipeline with automated Data Quality validation, author non-trivial analytical SQL (window functions, recursive CTEs, and lag-based propagation), layer in a predictive delay-risk machine learning model, and serve sub-100ms insights through an interactive cockpit HUD dashboard reading live from the database — not just plot a flat CSV in pandas."*
 
@@ -202,8 +206,8 @@ aeropulse/
 
 ### 1. Prerequisites & Environment Setup
 ```bash
-git clone https://github.com/your-username/flight-delay-analytics.git
-cd flight-delay-analytics
+git clone https://github.com/Number789Alpha/aeropulse-flight-delay-analytics.git
+cd aeropulse-flight-delay-analytics
 
 python -m venv .venv
 .venv\Scripts\activate   # Windows
@@ -239,32 +243,18 @@ Navigate to **`http://localhost:8502`** in your browser.
 
 ---
 
-## ☁️ 1-Click Cloud Deployment (Streamlit Community Cloud)
+## ☁️ Live Cloud Deployment (Streamlit Community Cloud)
 
-You can deploy AeroPulse directly to **Streamlit Community Cloud** for a free, public URL to showcase to recruiters:
+AeroPulse is deployed and running live on **Streamlit Community Cloud**:
 
-1. **Push to GitHub**:
-   ```bash
-   git init
-   git add .
-   git commit -m "feat: initial AeroPulse analytics release"
-   git remote add origin https://github.com/your-username/flight-delay-analytics.git
-   git push -u origin main
-   ```
-2. **Deploy on Streamlit Cloud**:
-   - Go to [share.streamlit.io](https://share.streamlit.io) and log in with GitHub.
-   - Click **"New App"**, select your repository, and set:
-     - **Main file path**: `dashboard/app.py`
-     - **Python version**: `3.11`
-   - Under **Advanced settings ➔ Secrets**, optionally set private admin credentials:
-     ```toml
-     [admin_credentials]
-     username = "admin"
-     password = "your_secure_password"
-     ```
-   - Click **"Deploy!"**
-3. **Automatic Cloud Resilience**:
-   - Streamlit Cloud automatically reads `packages.txt` (`unixodbc`), `.streamlit/config.toml` (dark cockpit styling), and falls back seamlessly to the portable SQLite Star Schema replica (`data/flights.db`).
+🔗 **Live Public App:** [https://aeropulse-flight-delay-analytics-xdpdjhpyfifrfgmxruwkcw.streamlit.app/](https://aeropulse-flight-delay-analytics-xdpdjhpyfifrfgmxruwkcw.streamlit.app/)
+
+### Cloud Architecture Highlights:
+- **Zero-Setup Database Replica**: Embeds a portable SQLite 3NF Star Schema (`data/flights.db`) containing 49,405 flight records with full dimensional indexing.
+- **System ODBC Drivers**: Automatically installed via `packages.txt` (`unixodbc`, `unixodbc-dev`).
+- **Dark Cockpit Theme**: Pre-configured via `.streamlit/config.toml`.
+- **Runtime Pinned to Python 3.11**: Guaranteed package stability via `.python-version`.
+- **Role-Based Access Control**: Configurable via Streamlit Secrets (`[admin_credentials]`).
 
 ---
 
