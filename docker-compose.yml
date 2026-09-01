@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  aeropulse-dashboard:
+    build: .
+    container_name: aeropulse_analytics
+    ports:
+      - "8502:8501"
+    environment:
+      - STREAMLIT_SERVER_PORT=8501
+      - STREAMLIT_SERVER_ADDRESS=0.0.0.0
+      - DB_TYPE=sqlite
+    volumes:
+      - ./data:/app/data
+      - ./ml:/app/ml
+    restart: unless-stopped

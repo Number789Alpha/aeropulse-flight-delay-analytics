@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Database & Large Raw Data
+# data/raw_flights.csv can be regenerated with etl/download_data.py
+*.sqlite
+*.db
+!data/flights.db
+.env
+
+# Streamlit Private Secrets
+.streamlit/secrets.toml
+
+# IDE
+.vscode/
+.idea/
+*.swp
